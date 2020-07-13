@@ -27,6 +27,8 @@ dependencies:
   shared_preferences: ^0.5.8
   http: ^0.12.1
   google_fonts: ^1.1.0
+  flappy_search_bar: ^1.7.2
+  webview_flutter: ^0.3.22+1
 
 
   # The following adds the Cupertino Icons font to your application.

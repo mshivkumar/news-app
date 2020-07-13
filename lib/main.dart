@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:news_app/notifiers/dark_theme_provider.dart';
+import 'package:news_app/screens/news_article_detail_screen.dart';
 import 'package:news_app/utils/styles.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +17,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   DarkThemeProvider themeChangeProvider = new DarkThemeProvider();
 
   @override
@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
 
   void getCurrentAppTheme() async {
     themeChangeProvider.darkTheme =
-    await themeChangeProvider.darkThemePreference.getTheme();
+        await themeChangeProvider.darkThemePreference.getTheme();
   }
 
   @override
@@ -42,10 +42,13 @@ class _MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             theme: Styles.themeData(themeChangeProvider.darkTheme, context),
             home: HomePage(),
+            routes: {
+              NewsArticleDetailScreen.routeName: (ctx) =>
+                  NewsArticleDetailScreen(),
+            },
           );
         },
       ),
     );
   }
 }
-
